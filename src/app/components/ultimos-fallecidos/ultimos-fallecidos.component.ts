@@ -25,7 +25,6 @@ export class UltimosFallecidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.ultimos_fallecidos();
-    console.log(this.fecha);
   }
 
   ultimos_fallecidos() {

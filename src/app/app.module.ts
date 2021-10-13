@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { UltimosFallecidosComponent } from './components/ultimos-fallecidos/ultimos-fallecidos.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ErrorComponent } from './components/error/error.component';
     HeaderComponent,
     UltimosFallecidosComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none dropdown-toggle"
         id="dropdownNavLink" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa fa-qrcode fa-3x"></i>
+        <em class="fa fa-qrcode fa-3x"></em>
         <h3 class="logo">QRremember</h3>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink">
@@ -23,7 +23,7 @@
         <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
       </form>
 
-      <div class="flex-shrink-0 dropdown">
+      <div class="flex-shrink-0 dropdown" *ngIf="login">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
           data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -37,6 +37,10 @@
         </ul>
       </div>
 
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" routerLink="/usuario/identificar" routerLinkActive="active" >Identificar</button>
+        <button type="button" class="btn btn-secondary" routerLink="/usuario/registrar" routerLinkActive="active" >Registrar</button>
+      </div>
 
     </div>
   </div>

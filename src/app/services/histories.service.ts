@@ -12,7 +12,7 @@ export class HistoriesService {
 
 
   public ultimos_fallecidos(){
-    return this._http.get<HistoryModel[]>(this.config.url+'/ultimos_fallecidos');
+    return this._http.get<HistoryModel[]>(this.config.url+'/fallecidos');
   }
 
 

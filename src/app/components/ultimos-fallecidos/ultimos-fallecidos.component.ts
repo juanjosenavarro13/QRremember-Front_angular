@@ -19,8 +19,6 @@ export class UltimosFallecidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.ultimos_fallecidos();
-    console.log(this.datePipe.transform(this.fecha_actual,"dd/MM/yyyy"));
-    console.log(this.fecha_actual);
   }
 
   ultimos_fallecidos() {

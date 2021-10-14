@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from 'src/app/models/UsuarioModel';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -8,9 +9,10 @@ import { UsuarioModel } from 'src/app/models/UsuarioModel';
 })
 export class RegisterComponent implements OnInit {
   
-  public UsuarioModel: UsuarioModel;
-  constructor() {
-    this.UsuarioModel = new UsuarioModel('');
+  public usuario: UsuarioModel;
+
+  constructor(private _usuarioService:UsuarioService) {
+    this.usuario = new UsuarioModel('');
    }
 
   ngOnInit(): void {
@@ -18,7 +20,14 @@ export class RegisterComponent implements OnInit {
   }
 
   public registrar(registroForm:UsuarioModel){
-    console.log(registroForm);
+    this._usuarioService.registro(registroForm).subscribe(
+      data => {
+        // console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }

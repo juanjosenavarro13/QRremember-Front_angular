@@ -15,8 +15,11 @@ export class UsuarioService {
 
 
   public registro(usuario:UsuarioModel){
-    console.log(usuario);
     return this._http.post<UsuarioModel>(this.config.url+'/usuarios', usuario);
+  }
+
+  public login(usuario:UsuarioModel){
+    return this._http.post<UsuarioModel>(this.config.url+'/login', usuario);
   }
   
   

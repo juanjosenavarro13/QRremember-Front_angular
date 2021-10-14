@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioModel } from 'src/app/models/UsuarioModel';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public usuario: UsuarioModel;
+  public identificado:boolean=false;
+  public error:boolean= false;
+  public identificado_nombre:any;
+  
+
+  constructor(private _usuarioService:UsuarioService) {
+    this.usuario = new UsuarioModel('');
+   }
 
   ngOnInit(): void {
   }
+
+
+  public login(registroForm:UsuarioModel){
+    this._usuarioService.login(registroForm).subscribe(
+      data => {
+        this.identificado = true;
+        this.error = false;
+        this.identificado_nombre = data.user.nombre;
+      },
+      error => {
+        console.log(error);
+        this.error = true;
+        this.identificado = false;
+      }
+    );
+  }
+  
 
 }

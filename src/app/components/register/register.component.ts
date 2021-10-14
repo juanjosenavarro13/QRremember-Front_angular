@@ -10,6 +10,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class RegisterComponent implements OnInit {
   
   public usuario: UsuarioModel;
+  public registrado:boolean=false;
+  public error:boolean=false;
+  public registrado_nombre:any;
 
   constructor(private _usuarioService:UsuarioService) {
     this.usuario = new UsuarioModel('');
@@ -22,10 +25,14 @@ export class RegisterComponent implements OnInit {
   public registrar(registroForm:UsuarioModel){
     this._usuarioService.registro(registroForm).subscribe(
       data => {
-        // console.log(data);
+        this.registrado = true;
+        this.error = false;
+        this.registrado_nombre = registroForm.nombre;
       },
       error => {
         console.log(error);
+        this.error = true;
+        this.registrado = false;
       }
     );
   }

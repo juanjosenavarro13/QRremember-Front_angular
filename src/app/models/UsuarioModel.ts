@@ -1,11 +1,12 @@
-export class UserModel{
+export class UsuarioModel{
 
     constructor(
-        public id:number,
-        public username:string,
         public email:string,
-        public role:string,
-        public active:boolean
+        public id?:number,
+        public username?:string,
+        public role?:string,
+        public active?:boolean,
+        public password?:string
     ){}
 
 

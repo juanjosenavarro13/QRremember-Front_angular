@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +10,10 @@ export class HeaderComponent implements OnInit {
 
   public login:boolean = false;
 
-  constructor(private _user:UsersService) { }
+  constructor(private _user:UsuarioService) { }
 
   ngOnInit(): void {
-    this.login = this._user.comprobar_login();
+    
   }
 
 

@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HistoryModel } from '../models/HistoryModel';
+import { FallecidoModel } from '../models/FallecidoModel';
 import { ConfiggeneralService } from './configgeneral.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HistoriesService {
+export class FallecidosService {
 
   constructor(private config:ConfiggeneralService, private _http:HttpClient) { }
 
 
   public ultimos_fallecidos(){
-    return this._http.get<HistoryModel[]>(this.config.url+'/fallecidos');
+    return this._http.get<FallecidoModel[]>(this.config.url+'/fallecidos');
   }
 
 

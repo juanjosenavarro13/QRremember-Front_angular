@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
-import {HistoryModel} from 'src/app/models/HistoryModel';
-import { HistoriesService} from 'src/app/services/histories.service';
+import { FallecidoModel } from 'src/app/models/FallecidoModel';
+import { FallecidosService } from 'src/app/services/fallecidos.service';
 
 @Component({
   selector: 'app-ultimos-fallecidos',
@@ -9,13 +9,13 @@ import { HistoriesService} from 'src/app/services/histories.service';
   styleUrls: ['./ultimos-fallecidos.component.css']
 })
 export class UltimosFallecidosComponent implements OnInit {
-  public fallecidos: HistoryModel[] = [];
+  public fallecidos: FallecidoModel[] = [];
   public fecha_actual:Date = new Date();
   public error:string = "";
 
 
 
-  constructor(private historyservice: HistoriesService, private datePipe: DatePipe) {}
+  constructor(private _fallecidosService: FallecidosService, private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     this.ultimos_fallecidos();
@@ -24,7 +24,7 @@ export class UltimosFallecidosComponent implements OnInit {
   }
 
   ultimos_fallecidos() {
-    this.historyservice.ultimos_fallecidos().subscribe(
+    this._fallecidosService.ultimos_fallecidos().subscribe(
       data => {
         this.fallecidos = data;
       },

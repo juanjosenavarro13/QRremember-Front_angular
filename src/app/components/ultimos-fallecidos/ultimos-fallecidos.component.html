@@ -8,7 +8,6 @@
       <li *ngFor="let fallecido of fallecidos; let i = index" class="list-group-item"> {{ fallecido.nombre }} {{ fallecido.apellidos }}
         <br> 
         <var class="text-secondary"> {{ fallecido.fecha_nacimiento | date: 'dd/MM/yyyy'}} - {{ fallecido.fecha_fallecimiento | date: 'dd/MM/yyyy'}} </var> 
-        <span class="badge bg-danger">Hoy</span> </li>
     </ul>
     <p *ngIf="error" >{{error}}</p>
   </div>

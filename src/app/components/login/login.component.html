@@ -3,10 +3,10 @@
       QRremember ~ Identificar
     </div>
     <div class="card-body">
-  
-  
+
+
       <div *ngIf="identificado" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Bienvenid@ {{identificado_nombre}} !</strong> Ya estas dentro.
+        <strong>Bienvenid@!</strong> Ya estas dentro.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 
@@ -14,8 +14,8 @@
         <strong>ERROR!</strong> no se ha podido identificar.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
-  
-  
+
+
       <form #loginForm="ngForm" (ngSubmit) = "login(loginForm.value)">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
@@ -27,9 +27,8 @@
         </div>
         <button type="submit" class="btn btn-secondary" [disabled]="!loginForm.valid" >Entrar</button>
       </form>
-  
-  
-  
+
+
+
     </div>
   </div>
-  

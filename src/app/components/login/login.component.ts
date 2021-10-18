@@ -12,8 +12,7 @@ export class LoginComponent implements OnInit {
   public usuario: UsuarioModel;
   public identificado:boolean=false;
   public error:boolean= false;
-  public identificado_nombre:any;
-  
+
 
   constructor(private _usuarioService:UsuarioService) {
     this.usuario = new UsuarioModel('');
@@ -28,15 +27,13 @@ export class LoginComponent implements OnInit {
       data => {
         this.identificado = true;
         this.error = false;
-        this.identificado_nombre = data.user.nombre;
       },
       error => {
-        console.log(error);
         this.error = true;
         this.identificado = false;
       }
     );
   }
-  
+
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioModel } from 'src/app/models/UsuarioModel';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { User } from 'src/app/models/User';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,30 +10,31 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  public usuario: UsuarioModel;
   public identificado:boolean=false;
   public error:boolean= false;
+  public usuario:User;
 
 
-  constructor(private _usuarioService:UsuarioService) {
-    this.usuario = new UsuarioModel('');
+  constructor(private _authService:AuthService) {
+    this.usuario = new User(0,'','','');
    }
 
   ngOnInit(): void {
   }
 
 
-  public login(registroForm:UsuarioModel){
-    this._usuarioService.login(registroForm).subscribe(
+  login(user:User){
+    this._authService.login(user).subscribe(
       data => {
+        this._authService.saveToken(data.access_token, data.expires_in);
         this.identificado = true;
         this.error = false;
       },
-      error => {
+      err => {
         this.error = true;
         this.identificado = false;
       }
-    );
+    )
   }
 
 

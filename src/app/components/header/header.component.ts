@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +10,19 @@ export class HeaderComponent implements OnInit {
 
   public login:boolean = false;
 
-  constructor(private _user:UsuarioService) { }
+  constructor(private _authService:AuthService) { }
 
   ngOnInit(): void {
-    
+    this.estado_identificado();
+  }
+
+
+  estado_identificado(){
+    if(this._authService.getToken()){
+      console.log("identificado");
+    }else{
+      console.log("no identificado");
+    }
   }
 
 

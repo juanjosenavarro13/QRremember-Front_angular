@@ -6,7 +6,7 @@
 
 
     <div *ngIf="registrado" class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Bienvenid@ !</strong> Ya estas registrad@.
+      <strong>Bienvenid@ !</strong> Ya te has registrad@.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
@@ -16,7 +16,7 @@
     </div>
 
 
-    <form #registroForm="ngForm" (ngSubmit) = "registrar(registroForm.value)">
+    <form #registroForm="ngForm" (ngSubmit) = "register(registroForm.value)">
       <div class="mb-3">
         <label class="form-label">Nombre</label>
         <input type="text" class="form-control text-center" [(ngModel)]="usuario.nombre"  #nombre="ngModel" name="nombre" required maxlength="20">

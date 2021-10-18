@@ -5,11 +5,6 @@
     <div class="card-body">
 
 
-      <div *ngIf="identificado" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Bienvenid@!</strong> Ya estas identificado.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-
       <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>ERROR!</strong> no se ha podido identificar.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -19,11 +14,11 @@
       <form #loginForm="ngForm" (ngSubmit) = "login(loginForm.value)">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control text-center" [(ngModel)]="usuario.email"  #email="ngModel" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+          <input type="email" class="form-control text-center" ngModel #email="ngModel" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Contraseña</label>
-          <input type="password" class="form-control text-center" [(ngModel)]="usuario.password" #password="ngModel" name="password" required minlength="6" >
+          <input type="password" class="form-control text-center" ngModel #password="ngModel" name="password" required minlength="6" >
         </div>
         <button type="submit" class="btn btn-secondary" [disabled]="!loginForm.valid" >Entrar</button>
       </form>

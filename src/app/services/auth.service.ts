@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { JwtRresponse } from '../models/JwtResponse';
 import { User } from '../models/User';
 import { ConfiggeneralService } from './configgeneral.service';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,25 @@ export class AuthService {
    }
 
   register(user:User): Observable<JwtRresponse> {
-    return this._http.post<JwtRresponse>(this._global.url+'/auth/register', user);
+    return this._http.post<JwtRresponse>(this._global.url+'/auth/register', user).pipe(tap(
+      (res:JwtRresponse) => {
+        if(res){
+          //guardar token
+          this.saveToken(res.access_token, res.expires_in);
+        }
+      }
+    ))
   }
 
   login(user:User): Observable<JwtRresponse> {
-    return this._http.post<JwtRresponse>(this._global.url+'/auth/login', user);
+    return this._http.post<JwtRresponse>(this._global.url+'/auth/login', user).pipe(tap(
+      (res:JwtRresponse) => {
+        if(res){
+          // guardar token
+          this.saveToken(res.access_token, res.expires_in);
+        }
+      }
+    ))
   }
 
   logout():void{
@@ -30,21 +45,18 @@ export class AuthService {
     localStorage.removeItem('EXPIRES_IN');
   }
 
-  saveToken(token:string, expiresIn:string):void{
+  private saveToken(token:string, expiresIn:string):void{
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
     this.token = token;
   }
 
-  getToken():string{
+  private getToken():string{
     if(!this.token){
       this.token = localStorage.getItem('ACCESS_TOKEN');
     }
     return this.token;
   }
 
-  getUser(token:string){
-    this._http.post(this._global.url+'/auth/me', +token);
-  }
 
 }

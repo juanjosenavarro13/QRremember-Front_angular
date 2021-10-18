@@ -3,12 +3,12 @@ export class JwtRresponse {
   constructor(
     public access_token:string,
     public expires_in:string,
-    public dataUser:{
+    public usuario:{
       id:number,
-      name:string,
+      nombre:string,
       email:string,
-      accessToken:string,
-      expiresIn:string
+      updated_at:Date,
+      created_at:Date
     }
   ){}
 

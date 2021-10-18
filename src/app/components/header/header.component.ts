@@ -10,20 +10,13 @@ export class HeaderComponent implements OnInit {
 
   public login:boolean = false;
 
-  constructor(private _authService:AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.estado_identificado();
   }
 
 
-  estado_identificado(){
-    if(this._authService.getToken()){
-      console.log("identificado");
-    }else{
-      console.log("no identificado");
-    }
-  }
+
 
 
 }

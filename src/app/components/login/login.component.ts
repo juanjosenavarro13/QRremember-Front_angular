@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,12 +13,9 @@ export class LoginComponent implements OnInit {
 
   public identificado:boolean=false;
   public error:boolean= false;
-  public usuario:User;
 
 
-  constructor(private _authService:AuthService) {
-    this.usuario = new User(0,'','','');
-   }
+  constructor(private _authService:AuthService, private Router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,13 +24,11 @@ export class LoginComponent implements OnInit {
   login(user:User){
     this._authService.login(user).subscribe(
       data => {
-        this._authService.saveToken(data.access_token, data.expires_in);
-        this.identificado = true;
-        this.error = false;
+        // redireccionar
+      this.Router.navigateByUrl('/');
       },
       err => {
         this.error = true;
-        this.identificado = false;
       }
     )
   }

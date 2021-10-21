@@ -9,12 +9,12 @@
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink">
         <li><a class="dropdown-item" routerLink="/" routerLinkActive="bg-dark text-white" [routerLinkActiveOptions]="{exact:
             true}" aria-current="page">Inicio</a></li>
-        <li><a class="dropdown-item" href="#">Página Fallecido [main]</a></li>
+        <li *ngIf="user.role=='USER'" ><a class="dropdown-item" href="#">Página Fallecido [NOMBRE]</a></li>
         <li><a class="dropdown-item" href="#">Ultimos fallecidos</a></li>
-        <li>
+        <li *ngIf="user.role=='ADMIN'">
           <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">ADMIN</a></li>
+        <li *ngIf="user.role=='ADMIN'" ><a class="dropdown-item" href="#">ADMIN</a></li>
       </ul>
     </div>
 
@@ -26,20 +26,23 @@
       <div class="flex-shrink-0 dropdown" *ngIf="login">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <img src="{{user.img_perfil}}" alt="mdo" width="32" height="32" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-          <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+          <li class="dropdown-item"><span class="badge bg-secondary">{{user.nombre}} ~ {{user.id}}</span></li>
           <li>
             <hr class="dropdown-divider">
           </li>
+          <li><a class="dropdown-item" href="#">Mi perfil</a></li>
           <li><a class="dropdown-item btn" (click)="logout()">Salir</a></li>
         </ul>
       </div>
 
       <div class="btn-group" *ngIf="!login">
-        <button type="button" class="btn btn-secondary" routerLink="/usuario/identificar" routerLinkActive="active" >Identificar</button>
-        <button type="button" class="btn btn-secondary" routerLink="/usuario/registrar" routerLinkActive="active" >Registrar</button>
+        <button type="button" class="btn btn-secondary" routerLink="/usuario/identificar"
+          routerLinkActive="active">Identificar</button>
+        <button type="button" class="btn btn-secondary" routerLink="/usuario/registrar"
+          routerLinkActive="active">Registrar</button>
       </div>
 
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,8 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   public login:boolean =this._authService.user_active;
+  public user:User;
 
-  constructor(private _authService:AuthService) { }
+  constructor(private _authService:AuthService) {
+    this.user = new User(0,'');
+   }
 
   ngOnInit(): void {
     this.getuser();
@@ -21,7 +25,16 @@ export class HeaderComponent implements OnInit {
   }
 
   getuser(){
-    
+    if(this.login){
+      this._authService.getUser().subscribe(
+        data => {
+          this.user = data;
+        },
+        err => {
+          this._authService.logout();
+        }
+      )
+    }
   }
 
 

@@ -19,12 +19,12 @@
     <form #registroForm="ngForm" (ngSubmit) = "register(registroForm.value)">
       <div class="mb-3">
         <label class="form-label">Nombre</label>
-        <input type="text" class="form-control text-center" ngModel  #nombre="ngModel" name="nombre" required maxlength="20">
+        <input type="text" class="form-control text-center" ngModel  #nombre="ngModel" name="nombre" required maxlength="50">
         <div *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Campo necesario.</div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control text-center" ngModel #email="ngModel" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50">
+        <input type="email" class="form-control text-center" ngModel #email="ngModel" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="100">
         <div *ngIf="email.invalid && email.touched" class="form-text text-danger">Campo necesario con formato email.</div>
       </div>
       <div class="mb-3">

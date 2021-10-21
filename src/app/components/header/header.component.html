@@ -33,11 +33,11 @@
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="#">Salir</a></li>
+          <li><a class="dropdown-item btn" (click)="logout()">Salir</a></li>
         </ul>
       </div>
 
-      <div class="btn-group">
+      <div class="btn-group" *ngIf="!login">
         <button type="button" class="btn btn-secondary" routerLink="/usuario/identificar" routerLinkActive="active" >Identificar</button>
         <button type="button" class="btn btn-secondary" routerLink="/usuario/registrar" routerLinkActive="active" >Registrar</button>
       </div>

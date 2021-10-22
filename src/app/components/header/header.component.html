@@ -9,8 +9,8 @@
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownNavLink">
         <li><a class="dropdown-item" routerLink="/" routerLinkActive="bg-dark text-white" [routerLinkActiveOptions]="{exact:
             true}" aria-current="page">Inicio</a></li>
+        <li><a class="dropdown-item" routerLink="/ultimosFallecidos" routerLinkActive="bg-dark text-white" >Ultimos fallecidos</a></li>
         <li *ngIf="user.role=='USER'" ><a class="dropdown-item" href="#">Página Fallecido [NOMBRE]</a></li>
-        <li><a class="dropdown-item" href="#">Ultimos fallecidos</a></li>
         <li *ngIf="user.role=='ADMIN'">
           <hr class="dropdown-divider">
         </li>

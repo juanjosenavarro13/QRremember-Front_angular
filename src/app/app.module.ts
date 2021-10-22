@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoFallecidoComponent } from './components/info-fallecido/info-fallecido.component';
+import { AdminGeneralComponent } from './components/admin/admin-general/admin-general.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InfoFallecidoComponent } from './components/info-fallecido/info-falleci
     LoginComponent,
     RegisterComponent,
     InfoFallecidoComponent,
+    AdminGeneralComponent,
   ],
   imports: [
     BrowserModule,

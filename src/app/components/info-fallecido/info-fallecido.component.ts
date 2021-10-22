@@ -1,4 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  ActivatedRoute
+} from '@angular/router';
+import * as moment from 'moment';
+import {
+  FallecidoModel
+} from 'src/app/models/FallecidoModel';
+import {
+  FallecidosService
+} from 'src/app/services/fallecidos.service';
 
 @Component({
   selector: 'app-info-fallecido',
@@ -7,9 +20,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoFallecidoComponent implements OnInit {
 
-  constructor() { }
+  private id = this.rutaActiva.snapshot.params.id;
+  public datos: FallecidoModel;
+  public edad:number=0;
+
+  constructor(private rutaActiva: ActivatedRoute, private _fallecidoService: FallecidosService) {
+    this.datos = new FallecidoModel(0, '', '', '', '', '', '', '');
+  }
+
+
 
   ngOnInit(): void {
+
+    this.obtener_info();
+  }
+
+  obtener_info() {
+    this._fallecidoService.fallecido_info(this.id).subscribe(
+      data => {
+        this.datos = data;
+        var fecha1 = moment(data.fecha_nacimiento);
+        var fecha2 = moment(data.fecha_fallecimiento);
+        this.edad = fecha2.diff(fecha1, 'years');
+      }
+    )
   }
 
 }

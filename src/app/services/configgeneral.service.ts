@@ -6,5 +6,8 @@ import { Injectable } from '@angular/core';
 export class ConfiggeneralService {
   public url:string;
 
-  constructor() { this.url = '/api' }
+  constructor() { 
+    this.url = '/api';
+    // this.url = 'http://back.qrremember.online/api';
+  }
 }

@@ -1,6 +1,6 @@
-import { DatePipe } from '@angular/common';
 import {Component, OnInit} from '@angular/core';
 import { FallecidoModel } from 'src/app/models/FallecidoModel';
+import { AuthService } from 'src/app/services/auth.service';
 import { FallecidosService } from 'src/app/services/fallecidos.service';
 
 @Component({
@@ -10,12 +10,13 @@ import { FallecidosService } from 'src/app/services/fallecidos.service';
 })
 export class UltimosFallecidosComponent implements OnInit {
   public fallecidos: FallecidoModel[] = [];
-  public fecha_actual:Date = new Date();
   public error:string = "";
 
 
 
-  constructor(private _fallecidosService: FallecidosService, private datePipe: DatePipe) {}
+  constructor(private _fallecidosService: FallecidosService, private _authService:AuthService) {}
+
+  public user_active = this._authService.user_active;
 
   ngOnInit(): void {
     this.ultimos_fallecidos();

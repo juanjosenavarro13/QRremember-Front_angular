@@ -15,5 +15,9 @@ export class FallecidosService {
     return this._http.get<FallecidoModel[]>(this.config.url+'/fallecidos');
   }
 
+  public fallecido_info(id:number){
+    return this._http.get<FallecidoModel>(this.config.url+'/fallecido_info/'+id);
+  }
+
 
 }

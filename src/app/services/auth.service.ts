@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor(private _global:ConfiggeneralService, private _http:HttpClient) {
     this.token = '';
-
+    
     if(localStorage.getItem('ACCESS_TOKEN')){
       this.user_active = true;
     }else{
@@ -42,13 +42,12 @@ export class AuthService {
           this.saveToken(res.access_token, res.expires_in);
         }
       }
-    ))
+    ));
   }
 
   logout():void{
     this.token = '';
-    localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('EXPIRES_IN');
+    localStorage.clear();
     this.user_active = false;
     window.location.href = "/";
   }
@@ -56,6 +55,7 @@ export class AuthService {
   private saveToken(token:string, expiresIn:string):void{
     localStorage.setItem("ACCESS_TOKEN", token);
     localStorage.setItem("EXPIRES_IN", expiresIn);
+    this.saveUser();
     this.token = token;
     window.location.href = "/";
   }
@@ -67,9 +67,20 @@ export class AuthService {
     return this.token;
   }
 
-  getUser(){
+  public getUser(){
     let token = this.getToken();
     return this._http.post<User>(this._global.url+'/auth/me', null, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)});
+  }
+
+  public saveUser(){
+    let token = this.getToken();
+    return this._http.post<User>(this._global.url+'/auth/me', null, {headers: new HttpHeaders().set('Authorization', 'Bearer ' + token)}).subscribe(
+      data =>{
+        let role = JSON.stringify(data.role);
+        role = role.replace(/['"]+/g, '');
+        localStorage.setItem("ROLE", role);
+      }
+    );
   }
 
 

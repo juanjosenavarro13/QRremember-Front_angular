@@ -7,6 +7,8 @@ export class FallecidoModel{
         public fecha_nacimiento:string,
         public fecha_fallecimiento:string,
         public descripcion:string,
+        public imagen:string,
+        public clave:string,
     ){}
 
 

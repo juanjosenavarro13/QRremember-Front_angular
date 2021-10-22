@@ -1,6 +1,6 @@
-<div class="card text-center">
+<div class="card text-center" *ngIf="mostrar">
     <div class="card-header bg-dark text-white">
-        {{datos.nombre}} {{datos.apellidos}} {{edad}} años  <p class="card-text"><small class="text-muted"> {{datos.fecha_nacimiento}} - {{datos.fecha_fallecimiento}}  </small>  </p>
+        {{datos.nombre}} {{datos.apellidos}} {{edad}} años  <p class="card-text"><small class="text-muted"> {{datos.fecha_nacimiento}} / {{datos.fecha_fallecimiento}}  </small>  </p>
     </div>
     <div class="card-body">
         

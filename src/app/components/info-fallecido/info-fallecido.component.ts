@@ -23,6 +23,7 @@ export class InfoFallecidoComponent implements OnInit {
   private id = this.rutaActiva.snapshot.params.id;
   public datos: FallecidoModel;
   public edad:number=0;
+  public mostrar = false;
 
   constructor(private rutaActiva: ActivatedRoute, private _fallecidoService: FallecidosService) {
     this.datos = new FallecidoModel(0, '', '', '', '', '', '', '');
@@ -31,8 +32,12 @@ export class InfoFallecidoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.rutaActiva.params.subscribe( params =>{
+      this.id = params.id;
+      this.obtener_info();
+    })
 
-    this.obtener_info();
+    
   }
 
   obtener_info() {
@@ -42,6 +47,7 @@ export class InfoFallecidoComponent implements OnInit {
         var fecha1 = moment(data.fecha_nacimiento);
         var fecha2 = moment(data.fecha_fallecimiento);
         this.edad = fecha2.diff(fecha1, 'years');
+        this.mostrar = true;
       }
     )
   }

@@ -17,6 +17,7 @@ export class UltimosFallecidosComponent implements OnInit {
   constructor(private _fallecidosService: FallecidosService, private _authService:AuthService) {}
 
   public user_active = this._authService.user_active;
+  public mostrar = false;
 
   ngOnInit(): void {
     this.ultimos_fallecidos();
@@ -26,6 +27,7 @@ export class UltimosFallecidosComponent implements OnInit {
     this._fallecidosService.ultimos_fallecidos().subscribe(
       data => {
         this.fallecidos = data;
+        this.mostrar = true;
       },
       error => {
         console.log(error);

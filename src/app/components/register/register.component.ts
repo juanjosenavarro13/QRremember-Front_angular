@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   register(user:User){
     this._authService.register(user).subscribe(
       data => {
-        this.Router.navigateByUrl('/usuario/identificar');
+        this.registrado = true;
       },
       err => {
         console.log(err);

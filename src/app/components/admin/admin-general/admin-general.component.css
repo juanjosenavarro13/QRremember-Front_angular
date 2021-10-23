@@ -1,0 +1,8 @@
+.nav-link{
+    color: black;
+}
+
+.dropdown-menu>li>a:active {
+    background: #212529; 
+    color: white; 
+}

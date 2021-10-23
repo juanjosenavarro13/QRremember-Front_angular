@@ -14,7 +14,7 @@
         <li *ngIf="user.role=='ADMIN'">
           <hr class="dropdown-divider">
         </li>
-        <li *ngIf="user.role=='ADMIN'" ><a class="dropdown-item" href="#">ADMIN</a></li>
+        <li *ngIf="user.role=='ADMIN'" ><a class="dropdown-item" routerLink="/admin" routerLinkActive="bg-dark text-white">ADMIN</a></li>
       </ul>
     </div>
 

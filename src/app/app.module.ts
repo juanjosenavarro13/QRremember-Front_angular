@@ -13,6 +13,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoFallecidoComponent } from './components/info-fallecido/info-fallecido.component';
 import { AdminGeneralComponent } from './components/admin/admin-general/admin-general.component';
+import { CrearusuarioComponent } from './components/admin/usuarios/crearusuario/crearusuario.component';
+import { EditarusuarioComponent } from './components/admin/usuarios/editarusuario/editarusuario.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { AdminGeneralComponent } from './components/admin/admin-general/admin-ge
     RegisterComponent,
     InfoFallecidoComponent,
     AdminGeneralComponent,
+    CrearusuarioComponent,
+    EditarusuarioComponent
   ],
   imports: [
     BrowserModule,

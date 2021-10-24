@@ -19,5 +19,13 @@ export class UsuarioService {
     return this._http.get<User>(this._global.url+'/usuarios/info/'+id);
   }
 
+  actualizar_usuario(id:number, user:any){
+    return this._http.post(this._global.url+'/usuarios/actualizar/'+id, user);
+  }
+
+  delete(id:number){
+    return this._http.post(this._global.url+'/usuarios/eliminar/'+id, null);
+  }
+
 
 }

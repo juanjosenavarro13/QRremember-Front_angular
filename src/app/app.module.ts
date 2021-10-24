@@ -15,6 +15,7 @@ import { InfoFallecidoComponent } from './components/info-fallecido/info-falleci
 import { AdminGeneralComponent } from './components/admin/admin-general/admin-general.component';
 import { CrearusuarioComponent } from './components/admin/usuarios/crearusuario/crearusuario.component';
 import { EditarusuarioComponent } from './components/admin/usuarios/editarusuario/editarusuario.component';
+import { EdituserComponent } from './components/admin/usuarios/edituser/edituser.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditarusuarioComponent } from './components/admin/usuarios/editarusuari
     InfoFallecidoComponent,
     AdminGeneralComponent,
     CrearusuarioComponent,
-    EditarusuarioComponent
+    EditarusuarioComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,

@@ -32,7 +32,7 @@
         <input type="password" class="form-control text-center" ngModel #password="ngModel" name="password" required minlength="6" >
         <div *ngIf="password.invalid && password.touched" class="form-text text-danger">Campo necesario (min 6 caracteres).</div>
       </div>
-      <button type="submit" class="btn btn-secondary" [disabled]="!registroForm.valid" >Registrar</button>
+      <button type="submit" class="btn btn-dark" [disabled]="!registroForm.valid" >Registrar</button>
     </form>
 
 

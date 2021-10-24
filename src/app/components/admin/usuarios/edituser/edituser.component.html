@@ -1,0 +1,46 @@
+<app-admin-general></app-admin-general>
+
+<div class="card text-center">
+  <div class="card-header bg-dark text-white">
+    Editar usuario
+  </div>
+  <div class="card-body">
+    <div *ngIf="edit" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Edita@ !</strong> correctamente.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="error" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Error !</strong> no se ha podido editar correctamente.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form #updateForm="ngForm" (ngSubmit)="update(updateForm.value)">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control text-center" [(ngModel)]="usuario.nombre" #nombre="ngModel" name="nombre"
+          value="{{usuario.nombre}}" required maxlength="50">
+
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control text-center" [(ngModel)]="usuario.email" #email="ngModel" name="email" required
+          value="{{usuario.email}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="100">
+
+      </div>
+
+      <div class="mb-3">
+        <label for="role" class="form-label">Rol</label>
+        <select class="form-select text-center" [(ngModel)]="usuario.role" name="role">
+          <option value="{{usuario.role}}" selected>{{usuario.role}} (actual)</option>
+          <option *ngIf="usuario.role == 'ADMIN'" value="USER">USER</option>
+          <option *ngIf="usuario.role == 'USER'" value="ADMIN">ADMIN</option>
+        </select>
+
+      </div>
+
+      <button type="submit" class="btn btn-dark">Editar</button> <a routerLink=".." class="m-3 text-dark" >Volver</a>
+    </form>
+
+  </div>
+</div>

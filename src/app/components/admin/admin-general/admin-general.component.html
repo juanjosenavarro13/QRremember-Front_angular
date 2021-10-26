@@ -1,12 +1,20 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" aria-current="page" routerLink="/admin" routerLinkActive="active" >ADMIN</a>
+      <a class="nav-link" aria-current="page" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+        true}" >ADMIN</a>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Usuarios</a>
+      <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" role="button"  aria-expanded="false">Usuarios</a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" routerLink="/admin/usuarios/crear" routerLinkActive="bg-dark text-white" >Crear</a></li>
-        <li><a class="dropdown-item" routerLink="/admin/usuarios/editar" routerLinkActive="bg-dark text-white">Editar</a></li>
+        <li><a class="dropdown-item" routerLink="/admin/usuarios/lista" routerLinkActive="bg-dark text-white">Editar</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" routerLinkActive="active" aria-expanded="false">Fallecidos</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" routerLink="/admin/fallecidos/crear" routerLinkActive="bg-dark text-white" >Crear</a></li>
+        <li><a class="dropdown-item" routerLink="/admin/fallecidos/lista" routerLinkActive="bg-dark text-white">Editar</a></li>
       </ul>
     </li>
   </ul>

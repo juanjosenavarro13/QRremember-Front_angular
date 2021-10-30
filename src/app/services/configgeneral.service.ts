@@ -8,9 +8,12 @@ export class ConfiggeneralService {
   public imgUrl:string;
 
   constructor() { 
+    //local
     this.url = '/api';
-    // this.url = 'http://back.qrremember.online/api';
-
     this.imgUrl = 'http://localhost/QRremember/backend_laravel/';
+
+    //produccion
+    // this.url = 'http://back.qrremember.online/api';    
+    // this.imgUrl = 'http://back.qrremember.online/';
   }
 }

@@ -70,9 +70,7 @@
       <div class="mb-3">
         <label class="form-label">Usuario administrador:</label>
         <select class="form-select text-center" aria-label="Default select example" ngModel #user_id="ngModel" name="user_id">
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option value="{{ user.id }}" *ngFor="let user of usuarios" >{{ user.nombre }}</option>
         </select>
       </div>
 
@@ -86,10 +84,10 @@
 
 
 
-      <button type="submit" class="btn btn-dark" [disabled]="!fallecidoForm.valid">Crear</button>
+      <button class="m-3" type="submit" class="btn btn-dark" [disabled]="!fallecidoForm.valid">Crear</button>
     </form>
 
-
+    
 
   </div>
 </div>

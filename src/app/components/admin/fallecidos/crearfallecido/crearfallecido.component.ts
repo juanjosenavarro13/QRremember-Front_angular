@@ -32,9 +32,10 @@ export class CrearfallecidoComponent implements OnInit {
     this._fallecidoService.crear_fallecido(form).subscribe(
       res =>{
         this.id = res.id;
-        this._fallecidoService.guardarImagen(this.imagen, this.id).subscribe(
-          res =>{}
-        )
+        if(this.imagen != null){
+          this._fallecidoService.guardarImagen(this.imagen, this.id).subscribe(res =>{})
+        }
+        
 
       }
     )

@@ -13,6 +13,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { InfoFallecidoComponent } from './components/info-fallecido/info-fallecido.component';
 import { LoginComponent } from './components/login/login.component';
+import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UltimosFallecidosComponent } from './components/ultimos-fallecidos/ultimos-fallecidos.component';
 import { AdminGuard } from './guards/admin.guard';
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'admin/fallecidos/lista',  canActivate: [AdminGuard], component:ListafallecidosComponent },
   { path: 'admin/fallecidos/editar/:id',  canActivate: [AdminGuard], component:EditarfallecidoComponent },
   { path: 'admin/fallecidos/eliminar/:id',  canActivate: [AdminGuard], component:EliminarfallecidoComponent },
+  { path: 'pruebas', component:PruebasComponent },
   { path: '**', component: ErrorComponent },
 ];
 

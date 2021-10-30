@@ -1,1 +1,95 @@
 <app-admin-general></app-admin-general>
+
+<div class="card text-center">
+  <div class="card-header bg-dark text-white">
+    QRremember ~ Crear fallecido
+  </div>
+  <div class="card-body">
+
+
+    <div *ngIf="creado" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Fallecido </strong> registrado correctamente.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>ERROR!</strong> no se ha podido registrar.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+
+    <form #fallecidoForm="ngForm" (ngSubmit)="crear(fallecidoForm.value)">
+      <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" class="form-control text-center" ngModel #nombre="ngModel" name="nombre" required
+          maxlength="20">
+        <div *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Campo necesario.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Apellidos:</label>
+        <input type="text" class="form-control text-center" ngModel #apellidos="ngModel" name="apellidos" required
+          maxlength="50">
+        <div *ngIf="apellidos.invalid && apellidos.touched" class="form-text text-danger">Campo necesario.</div>
+      </div>
+
+      <!-- imagen -->
+
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen de perfil:</label>
+        <input class="form-control" type="file" (change)="guardarImagen($event)">
+      </div>
+
+      <!-- /imagen -->
+
+
+
+      <div class="mb-3">
+        <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
+        <input type="date" class="form-control text-center" ngModel #fecha_nacimiento="ngModel" name="fecha_nacimiento"
+          required>
+        <div *ngIf="fecha_nacimiento.invalid && fecha_nacimiento.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="fecha_fallecimiento" class="form-label">Fecha de fallecimiento:</label>
+        <input type="date" class="form-control text-center" ngModel #fecha_fallecimiento="ngModel"
+          name="fecha_fallecimiento" required>
+        <div *ngIf="fecha_fallecimiento.invalid && fecha_fallecimiento.touched" class="form-text text-danger">Campo
+          necesario.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Descripcion</label>
+        <textarea type="text" class="form-control text-center" ngModel #descripcion="ngModel" name="descripcion"
+          required> </textarea>
+        <div *ngIf="descripcion.invalid && descripcion.touched" class="form-text text-danger">Campo necesario.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Usuario administrador:</label>
+        <select class="form-select text-center" aria-label="Default select example" ngModel #user_id="ngModel" name="user_id">
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+
+
+
+      <div class="mb-3">
+        <label class="form-label">Clave</label>
+        <input type="text" class="form-control text-center" ngModel #clave="ngModel" name="clave">
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-dark" [disabled]="!fallecidoForm.valid">Crear</button>
+    </form>
+
+
+
+  </div>
+</div>

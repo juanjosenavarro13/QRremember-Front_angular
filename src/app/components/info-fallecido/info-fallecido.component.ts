@@ -10,6 +10,9 @@ import {
   FallecidoModel
 } from 'src/app/models/FallecidoModel';
 import {
+  ConfiggeneralService
+} from 'src/app/services/configgeneral.service';
+import {
   FallecidosService
 } from 'src/app/services/fallecidos.service';
 
@@ -22,22 +25,22 @@ export class InfoFallecidoComponent implements OnInit {
 
   private id = this.rutaActiva.snapshot.params.id;
   public datos: FallecidoModel;
-  public edad:number=0;
+  public edad: number = 0;
   public mostrar = false;
 
-  constructor(private rutaActiva: ActivatedRoute, private _fallecidoService: FallecidosService) {
-    this.datos = new FallecidoModel(0, '', '', '', '', '', '', '');
+  constructor(private rutaActiva: ActivatedRoute, private _fallecidoService: FallecidosService, private _general: ConfiggeneralService) {
+    this.datos = new FallecidoModel('', '', new Date(), new Date(), '', '', '');
   }
 
 
 
   ngOnInit(): void {
-    this.rutaActiva.params.subscribe( params =>{
+    this.rutaActiva.params.subscribe(params => {
       this.id = params.id;
       this.obtener_info();
     })
 
-    
+
   }
 
   obtener_info() {
@@ -48,6 +51,11 @@ export class InfoFallecidoComponent implements OnInit {
         var fecha2 = moment(data.fecha_fallecimiento);
         this.edad = fecha2.diff(fecha1, 'years');
         this.mostrar = true;
+
+        if (data.imagen != '../../../assets/img/fallecido_default.jpg') {
+          this.datos.imagen = this._general.imgUrl + data.imagen;
+        }
+
       }
     )
   }

@@ -20,6 +20,7 @@ import { EditarfallecidoComponent } from './components/admin/fallecidos/editarfa
 import { ListafallecidosComponent } from './components/admin/fallecidos/listafallecidos/listafallecidos.component';
 import { ListausuarioComponent } from './components/admin/usuarios/listausuario/listausuario.component';
 import { EliminarfallecidoComponent } from './components/admin/fallecidos/eliminarfallecido/eliminarfallecido.component';
+import { PruebasComponent } from './components/pruebas/pruebas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EliminarfallecidoComponent } from './components/admin/fallecidos/elimin
     EditarfallecidoComponent,
     ListafallecidosComponent,
     ListausuarioComponent,
-    EliminarfallecidoComponent
+    EliminarfallecidoComponent,
+    PruebasComponent
   ],
   imports: [
     BrowserModule,

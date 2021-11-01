@@ -35,5 +35,9 @@ export class FallecidosService {
     return this._http.get<FallecidoModel[]>(this.config.url+'/fallecidos/lista');
   }
 
+  delete(id:number){
+    return this._http.post(this.config.url+'/fallecido/eliminar/'+id, null);
+  }
+
 
 }

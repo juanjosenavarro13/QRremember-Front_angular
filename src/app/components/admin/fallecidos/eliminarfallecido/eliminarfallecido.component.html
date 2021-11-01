@@ -1,1 +1,11 @@
-<p>eliminarfallecido works!</p>
+<div class="card text-center">
+    <div class="card-header bg-dark text-white">
+      Eliminar fallecido
+    </div>
+    <div class="card-body">
+         <h2>Si está seguro de eliminar el fallecido {{id}} pulsa el siguiente boton.</h2>
+         <button class="btn btn-danger m-2" (click)="delete()">BORRAR</button>
+         <button class="btn btn-dark m-2" routerLink="/admin/fallecidos/lista">VOLVER</button>
+         
+    </div>
+  </div>

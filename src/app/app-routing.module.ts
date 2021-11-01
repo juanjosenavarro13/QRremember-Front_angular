@@ -33,8 +33,8 @@ const routes: Routes = [
   { path: 'admin/usuarios/eliminar/:id',  canActivate: [AdminGuard], component:EliminarusuarioComponent },
   { path: 'admin/fallecidos/crear',  canActivate: [AdminGuard], component:CrearfallecidoComponent },
   { path: 'admin/fallecidos/lista',  canActivate: [AdminGuard], component:ListafallecidosComponent },
-  { path: 'admin/fallecidos/editar/:id',  canActivate: [AdminGuard], component:EditarfallecidoComponent },
-  { path: 'admin/fallecidos/eliminar/:id',  canActivate: [AdminGuard], component:EliminarfallecidoComponent },
+  { path: 'admin/fallecido/editar/:id',  canActivate: [AdminGuard], component:EditarfallecidoComponent },
+  { path: 'admin/fallecido/eliminar/:id',  canActivate: [AdminGuard], component:EliminarfallecidoComponent },
   { path: 'pruebas', component:PruebasComponent },
   { path: '**', component: ErrorComponent },
 ];

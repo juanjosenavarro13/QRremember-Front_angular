@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FallecidoModel } from '../models/FallecidoModel';
 import { ConfiggeneralService } from './configgeneral.service';
 
@@ -28,6 +29,10 @@ export class FallecidosService {
     fd.append('image', image, image.name);
     return this._http.post(this.config.url+'/fallecido/imagen_perfil/'+id, fd);
 
+  }
+
+  public lista(){
+    return this._http.get<FallecidoModel[]>(this.config.url+'/fallecidos/lista');
   }
 
 

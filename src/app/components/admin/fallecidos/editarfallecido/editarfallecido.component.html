@@ -1,1 +1,79 @@
 <app-admin-general></app-admin-general>
+
+<div class="card text-center">
+  <div class="card-header bg-dark text-white">
+    Editar usuario
+  </div>
+  <div class="card-body">
+    <div *ngIf="edit" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Edita@ !</strong> correctamente.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div *ngIf="error" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Error !</strong> no se ha podido editar correctamente.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form #updateForm="ngForm" (ngSubmit)="update(updateForm.value)">
+        <!-- nombre -->
+      <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" class="form-control text-center" [(ngModel)]="fallecido.nombre" #nombre="ngModel"
+          name="nombre" value="{{fallecido.nombre}}" required maxlength="20">
+          <div *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <!-- apellidos -->
+      <div class="mb-3">
+        <label class="form-label">Apellidos:</label>
+        <input type="text" class="form-control text-center" [(ngModel)]="fallecido.apellidos" #apellidos="ngModel"
+          name="apellidos" value="{{fallecido.apellidos}}" required maxlength="50">
+          <div *ngIf="apellidos.invalid && apellidos.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <!-- imagen -->
+      <div class="mb-3">
+        <label class="form-label">Imagen de perfil:</label><br>
+        <img [src]="fallecido.imagen" alt="{{fallecido.nombre +' '+ fallecido.apellidos}}" class="img-fluid rounded" width="200">
+      </div>
+
+      <!-- fecha nacimiento -->
+      <div class="mb-3">
+        <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
+        <input type="date" class="form-control text-center" value="{{fallecido.fecha_nacimiento}}" ngModel #fecha_nacimiento="ngModel" name="fecha_nacimiento"
+          required>
+        <div *ngIf="fecha_nacimiento.invalid && fecha_nacimiento.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <!-- fecha fallecimiento -->
+      <div class="mb-3">
+        <label for="fecha_fallecimiento" class="form-label">Fecha de fallecimiento:</label>
+        <input type="date" class="form-control text-center" value="{{fallecido.fecha_fallecimiento}}" ngModel #fecha_fallecimiento="ngModel" name="fecha_nacimiento"
+          required>
+        <div *ngIf="fecha_fallecimiento.invalid && fecha_fallecimiento.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <!-- descripcion -->
+      <div class="mb-3">
+        <label class="form-label">Descripcion:</label>
+          <textarea type="text" class="form-control text-center" ngModel #descripcion="ngModel" name="descripcion"
+          required [value]="fallecido.descripcion"> </textarea>
+          <div *ngIf="descripcion.invalid && descripcion.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
+
+      <!-- usuario admin -->
+      
+      <!-- clave -->
+
+
+      <button type="submit" class="btn btn-dark">Editar</button> <a routerLink="/admin/fallecidos/lista" class="m-3 text-dark">Volver</a>
+    </form>
+
+  </div>
+</div>

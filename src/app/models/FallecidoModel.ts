@@ -10,6 +10,7 @@ export class FallecidoModel{
         public clave:string,
         public id?:number,
         public user_id?:number,
+        public user_nombre?:string,
     ){}
 
 

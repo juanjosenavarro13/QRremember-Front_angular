@@ -39,5 +39,9 @@ export class FallecidosService {
     return this._http.post(this.config.url+'/fallecido/eliminar/'+id, null);
   }
 
+  update(fallecido:any,id:number){
+    return this._http.post(this.config.url+'/fallecido/actualizar/'+id, fallecido);
+  }
+
 
 }

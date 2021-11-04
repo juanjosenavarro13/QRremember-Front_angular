@@ -40,10 +40,15 @@
         <img [src]="fallecido.imagen" alt="{{fallecido.nombre +' '+ fallecido.apellidos}}" class="img-fluid rounded" width="200">
       </div>
 
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen de perfil:</label>
+        <input class="form-control" type="file" (change)="guardarImagen($event)">
+      </div>
+
       <!-- fecha nacimiento -->
       <div class="mb-3">
         <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
-        <input type="date" class="form-control text-center" value="{{fallecido.fecha_nacimiento}}" ngModel #fecha_nacimiento="ngModel" name="fecha_nacimiento"
+        <input type="date" class="form-control text-center" value="{{fallecido.fecha_nacimiento}}" [(ngModel)]="fallecido.fecha_nacimiento" #fecha_nacimiento="ngModel" name="fecha_nacimiento"
           required>
         <div *ngIf="fecha_nacimiento.invalid && fecha_nacimiento.touched" class="form-text text-danger">Campo necesario.
         </div>
@@ -52,7 +57,7 @@
       <!-- fecha fallecimiento -->
       <div class="mb-3">
         <label for="fecha_fallecimiento" class="form-label">Fecha de fallecimiento:</label>
-        <input type="date" class="form-control text-center" value="{{fallecido.fecha_fallecimiento}}" ngModel #fecha_fallecimiento="ngModel" name="fecha_nacimiento"
+        <input type="date" class="form-control text-center" value="{{fallecido.fecha_fallecimiento}}" [(ngModel)]="fallecido.fecha_fallecimiento" #fecha_fallecimiento="ngModel" name="fecha_fallecimiento"
           required>
         <div *ngIf="fecha_fallecimiento.invalid && fecha_fallecimiento.touched" class="form-text text-danger">Campo necesario.
         </div>
@@ -61,15 +66,28 @@
       <!-- descripcion -->
       <div class="mb-3">
         <label class="form-label">Descripcion:</label>
-          <textarea type="text" class="form-control text-center" ngModel #descripcion="ngModel" name="descripcion"
-          required [value]="fallecido.descripcion"> </textarea>
+          <textarea  class="form-control text-center" name="descripcion" cols="30" rows="10" [(ngModel)]="fallecido.descripcion" #descripcion="ngModel" name="descripcion" required value="{{fallecido.descripcion}}" ></textarea>
+
           <div *ngIf="descripcion.invalid && descripcion.touched" class="form-text text-danger">Campo necesario.
         </div>
       </div>
 
       <!-- usuario admin -->
+      <div class="mb-3">
+        <label class="form-label">Usuario administrador:</label>
+        <select class="form-select text-center" aria-label="Default select example" [(ngModel)]="fallecido.user_id" #user_id="ngModel" name="user_id">
+          <option value="{{fallecido.user_id}}">{{fallecido.user_nombre}} (Actual)</option>
+          <option value="{{ user.id }}" *ngFor="let user of usuarios" >{{ user.nombre }}</option>
+        </select>
+      </div>
       
       <!-- clave -->
+      <div class="mb-3">
+        <label class="form-label">Clave</label>
+        <input type="text" class="form-control text-center" [(ngModel)]="fallecido.clave" #clave="ngModel" name="clave" value="{{fallecido.clave}}">
+        <div *ngIf="clave.invalid && clave.touched" class="form-text text-danger">Campo necesario.
+        </div>
+      </div>
 
 
       <button type="submit" class="btn btn-dark">Editar</button> <a routerLink="/admin/fallecidos/lista" class="m-3 text-dark">Volver</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FallecidoModel } from 'src/app/models/FallecidoModel';
 import { User } from 'src/app/models/User';
@@ -11,7 +11,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './editarfallecido.component.html',
   styleUrls: ['./editarfallecido.component.css']
 })
+
 export class EditarfallecidoComponent implements OnInit {
+  public admin = localStorage.getItem('ROLE');
   private id = this.rutaActiva.snapshot.params.id;
   public fallecido: FallecidoModel;
   public usuarios!: User[];
@@ -23,9 +25,13 @@ export class EditarfallecidoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    let elemento :any = document.getElementById('cambiarRole');
+    elemento.style = "visibility:hidden";
     this.obtenerInfo(this.id);
     this.obtenerUsuarios();
   }
+
+
 
   obtenerUsuarios(){
     this._usuariosService.lista().subscribe(

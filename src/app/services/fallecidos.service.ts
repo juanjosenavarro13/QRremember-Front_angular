@@ -43,5 +43,9 @@ export class FallecidosService {
     return this._http.post(this.config.url+'/fallecido/actualizar/'+id, fallecido);
   }
 
+  ubtenerUsuarioMain(id:any){
+    return this._http.get<FallecidoModel>(this.config.url+'/fallecidos/ubtenerUsuarioMain/'+id);
+  }
+
 
 }

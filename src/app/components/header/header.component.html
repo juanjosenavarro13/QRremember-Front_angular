@@ -10,7 +10,7 @@
         <li><a class="dropdown-item" routerLink="/" routerLinkActive="bg-dark text-white" [routerLinkActiveOptions]="{exact:
             true}" aria-current="page">Inicio</a></li>
         <li><a class="dropdown-item" routerLink="/ultimosFallecidos" routerLinkActive="bg-dark text-white" >Ultimos fallecidos</a></li>
-        <li *ngIf="user.role=='USER'" ><a class="dropdown-item" href="#">Página Fallecido [NOMBRE]</a></li>
+        <li *ngIf="user.role=='USER'" ><a class="dropdown-item" routerLinkActive="bg-dark text-white" routerLink="/fallecido/{{fallecido.id}}">Página Fallecido [{{fallecido.nombre + ' ' + fallecido.apellidos}}]</a></li>
         <li *ngIf="user.role=='ADMIN'">
           <hr class="dropdown-divider">
         </li>

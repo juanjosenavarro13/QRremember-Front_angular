@@ -21,7 +21,32 @@
             </div>
           </div>
 
-         
+
+
+    </div>
+  </div>
+
+  <!-- img -->
+  <div class="card text-center" *ngIf="mostrar">
+    <div class="card-header bg-dark text-white">
+       Archivos
+    </div>
+    <div class="card-body">
+        
+        <div class="mb-3">
+            <div class="row g-0">
+
+              <div class="col-md-12">
+                <div class="card-body text-center">
+
+                 <a *ngFor="let img of imagenes" href="{{Gurl+img.url}}" target="_blank"><img [src]="Gurl+img.url" alt="img.url" width="25%"></a>
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
 
 
     </div>

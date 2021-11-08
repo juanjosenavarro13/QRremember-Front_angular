@@ -47,5 +47,9 @@ export class FallecidosService {
     return this._http.get<FallecidoModel>(this.config.url+'/fallecidos/ubtenerUsuarioMain/'+id);
   }
 
+  obtenerImagenes(id:number){
+    return this._http.get(this.config.url+'/imagen/ver/'+id);
+  }
+
 
 }

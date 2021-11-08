@@ -21,6 +21,7 @@ import { ListafallecidosComponent } from './components/admin/fallecidos/listafal
 import { ListausuarioComponent } from './components/admin/usuarios/listausuario/listausuario.component';
 import { EliminarfallecidoComponent } from './components/admin/fallecidos/eliminarfallecido/eliminarfallecido.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PruebasComponent } from './components/pruebas/pruebas.component';
     ListafallecidosComponent,
     ListausuarioComponent,
     EliminarfallecidoComponent,
-    PruebasComponent
+    PruebasComponent,
+    BuscarComponent
   ],
   imports: [
     BrowserModule,

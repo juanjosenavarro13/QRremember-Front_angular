@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FallecidoModel } from 'src/app/models/FallecidoModel';
 import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,13 +17,18 @@ export class HeaderComponent implements OnInit {
   public user:User;
   public fallecido:FallecidoModel;
 
-  constructor(private _authService:AuthService, private _fallecidoService:FallecidosService) {
+  constructor(private _authService:AuthService, private _fallecidoService:FallecidosService, private router: Router) {
     this.user = new User(0,'');
     this.fallecido = new FallecidoModel('','',new Date(),new Date(),'','','');
    }
 
   ngOnInit(): void {
     this.getuser();
+  }
+
+  buscar(form:any){
+    console.log(form);
+    this.router.navigate(['/buscar/'+form.nombre]);
   }
 
   logout(){

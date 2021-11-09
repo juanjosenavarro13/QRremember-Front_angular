@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
   }
 
   buscar(form:any){
-    console.log(form);
     this.router.navigate(['/buscar/'+form.nombre]);
   }
 

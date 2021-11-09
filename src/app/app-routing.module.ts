@@ -9,6 +9,7 @@ import { CrearusuarioComponent } from './components/admin/usuarios/crearusuario/
 import { EdituserComponent } from './components/admin/usuarios/edituser/edituser.component';
 import { EliminarusuarioComponent } from './components/admin/usuarios/eliminarusuario/eliminarusuario.component';
 import { ListausuarioComponent } from './components/admin/usuarios/listausuario/listausuario.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { InfoFallecidoComponent } from './components/info-fallecido/info-fallecido.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'admin/fallecidos/lista',  canActivate: [AdminGuard], component:ListafallecidosComponent },
   { path: 'admin/fallecido/editar/:id',  canActivate: [AdminGuard], component:EditarfallecidoComponent },
   { path: 'admin/fallecido/eliminar/:id',  canActivate: [AdminGuard], component:EliminarfallecidoComponent },
+  { path: 'buscar/:nombre', component:BuscarComponent },
   { path: 'pruebas', component:PruebasComponent },
   { path: '**', component: ErrorComponent },
 ];

@@ -51,5 +51,9 @@ export class FallecidosService {
     return this._http.get(this.config.url+'/imagen/ver/'+id);
   }
 
+  buscadorFallecido(nombre:string){
+    return this._http.get(this.config.url+'/fallecido/buscar/'+nombre);
+  }
+
 
 }

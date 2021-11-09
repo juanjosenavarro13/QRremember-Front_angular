@@ -1,1 +1,15 @@
-<p>buscar works!</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+  <div class="col" *ngFor="let f of fallecidos">
+    <div class="card">
+      <a routerLink="/fallecido/{{f.id}}"><img [src]="f.imagen" class="card-img-top" alt="{{f.nombre + ' ' + f.apellidos}}"></a>
+      <div class="card-body">
+        <h5 class="card-title"><a class="text-black text-decoration-none" routerLink="/fallecido/{{f.id}}" >{{f.nombre + ' ' + f.apellidos}}</a></h5>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

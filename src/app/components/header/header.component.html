@@ -20,7 +20,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <form class="w-50 me-3 d-none d-sm-none d-md-block" #buscarForm="ngForm" (ngSubmit) = "buscar(buscarForm.value)">
-        <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search"  ngModel #nombre="ngModel" name="nombre">
+        <input type="search" class="form-control" placeholder="Buscar por APELLIDO" aria-label="Search"  ngModel #nombre="ngModel" name="nombre">
       </form>
 
       <div class="flex-shrink-0 dropdown" *ngIf="login">

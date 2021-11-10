@@ -25,11 +25,12 @@
 
     </div>
   </div>
+  <br>
 
   <!-- img -->
   <div class="card text-center" *ngIf="mostrar">
     <div class="card-header bg-dark text-white">
-       Archivos
+       Archivos <a class="text-white" routerLink="/subirImagen/{{id}}" *ngIf="datos.user_id == userID"> SUBIR IMAGENES</a>
     </div>
     <div class="card-body">
         
@@ -52,5 +53,6 @@
     </div>
   </div>
 
-
+<br>
+<br>
   <app-editarfallecido *ngIf="datos.user_id == userID"></app-editarfallecido>

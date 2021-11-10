@@ -16,6 +16,7 @@ import { InfoFallecidoComponent } from './components/info-fallecido/info-falleci
 import { LoginComponent } from './components/login/login.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SubirimagenComponent } from './components/subirimagen/subirimagen.component';
 import { UltimosFallecidosComponent } from './components/ultimos-fallecidos/ultimos-fallecidos.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'admin/fallecido/editar/:id',  canActivate: [AdminGuard], component:EditarfallecidoComponent },
   { path: 'admin/fallecido/eliminar/:id',  canActivate: [AdminGuard], component:EliminarfallecidoComponent },
   { path: 'buscar/:nombre', component:BuscarComponent },
+  { path: 'subirImagen/:id', component:SubirimagenComponent },
   { path: 'pruebas', component:PruebasComponent },
   { path: '**', component: ErrorComponent },
 ];

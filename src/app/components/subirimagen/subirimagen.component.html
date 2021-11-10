@@ -1,0 +1,15 @@
+<div class="card text-center">
+  <div class="card-header bg-dark text-white">
+    Subir imagenes
+  </div>
+  <div class="card-body">
+
+    <div class="mb-3">
+
+        <input class="form-control" type="file" multiple (change)="guardarImagen($event)">
+        <br>
+        <button class="btn btn-dark" (click)="subir()">Subir</button>
+    </div>
+
+  </div>
+</div>

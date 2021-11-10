@@ -55,5 +55,11 @@ export class FallecidosService {
     return this._http.get(this.config.url+'/fallecido/buscar/'+nombre);
   }
 
+  subirImagen(imagen:any, id:number){
+    const fd = new FormData;
+    fd.append('imagen', imagen, imagen.name);
+    return this._http.post(this.config.url+'/imagen/subir/'+id, fd);
+  }
+
 
 }

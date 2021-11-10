@@ -25,7 +25,7 @@ import {
 })
 export class InfoFallecidoComponent implements OnInit {
 
-  private id = this.rutaActiva.snapshot.params.id;
+  public id = this.rutaActiva.snapshot.params.id;
   public datos: FallecidoModel;
   public edad: number = 0;
   public mostrar = false;

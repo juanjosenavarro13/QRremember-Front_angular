@@ -22,6 +22,7 @@ import { ListausuarioComponent } from './components/admin/usuarios/listausuario/
 import { EliminarfallecidoComponent } from './components/admin/fallecidos/eliminarfallecido/eliminarfallecido.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { SubirimagenComponent } from './components/subirimagen/subirimagen.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     ListausuarioComponent,
     EliminarfallecidoComponent,
     PruebasComponent,
-    BuscarComponent
+    BuscarComponent,
+    SubirimagenComponent
   ],
   imports: [
     BrowserModule,
